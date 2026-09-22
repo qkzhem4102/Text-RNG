@@ -499,8 +499,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (() => {
-  const SUPABASE_URL='https://cbmebgpvbshxsrvybwlb.supabase.co';
-  const SUPABASE_PUBLISHABLE_KEY='sb_publishable_emzuJgHk9S9PsbgXPXF9Ig_QkxTYO2r';
+  const SUPABASE_URL='https://orwjnnjwpktdyjjjwaxc.supabase.co';
+  const SUPABASE_PUBLISHABLE_KEY='sb_publishable_W3IX3QmR8jhBV5TaN2ayQw_NZ87WwcK';
   const cloudClient=window.supabase?.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}})||null;
   const BASE_ITEMS=[
     ['COMMON',2,'#b7c0d6'],['UNCOMMON',5,'#82e6a9'],['VERDANT',12,'#4ee39a'],['AZURE',28,'#55c7ff'],
@@ -920,7 +920,7 @@
   function normalizedNickname(){return $('authNickname').value.trim().normalize('NFC')}
   function credentials(){return{nickname:normalizedNickname(),password:$('authPassword').value}}
   async function nicknameLoginEmail(nickname){
-    const bytes=new TextEncoder().encode('TEXT-RNG\0'+nickname);let digest=null;try{if(globalThis.crypto?.subtle)digest=new Uint8Array(await globalThis.crypto.subtle.digest('SHA-256',bytes))}catch{}if(!digest)digest=sha256Fallback(bytes);return[...digest].map(value=>value.toString(16).padStart(2,'0')).join('')+'@cbmebgpvbshxsrvybwlb.supabase.co';
+    const bytes=new TextEncoder().encode('TEXT-RNG\0'+nickname);let digest=null;try{if(globalThis.crypto?.subtle)digest=new Uint8Array(await globalThis.crypto.subtle.digest('SHA-256',bytes))}catch{}if(!digest)digest=sha256Fallback(bytes);return[...digest].map(value=>value.toString(16).padStart(2,'0')).join('')+'@orwjnnjwpktdyjjjwaxc.supabase.co';
   }
   async function isNicknameAvailable(nickname){
     const{data,error}=await cloudClient.rpc('nickname_available',{candidate:nickname});if(error)throw error;return data===true;
